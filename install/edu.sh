@@ -23,13 +23,13 @@ echo "Progress..." | lolcat
 sleep 3
 
 # Getting Proxy Template
-wget -q -O /usr/local/bin/ws-tls https://raw.githubusercontent.com/ryustorevpn/autoscriptryuvpn/main/ws/ws-tls.py
+wget -q -O /usr/local/bin/ws-tls https://raw.githubusercontent.com/cardinalproject/test/main/ws/ws-tls.py
 chmod +x /usr/local/bin/ws-tls
 
 # Installing Service
 cat > /etc/systemd/system/ws-tls.service << END
 [Unit]
-Description=Python Proxy Mod By geovpn
+Description=Python Proxy Mod By Cardinal Project
 Documentation=https://t.me/geovpn
 After=network.target nss-lookup.target
 
@@ -51,13 +51,13 @@ systemctl enable ws-tls
 systemctl restart ws-tls
 
 # Getting Proxy Template
-wget -q -O /usr/local/bin/ws-nontls https://raw.githubusercontent.com/ryustorevpn/autoscriptryuvpn/main/ws/ws-nontls.py
+wget -q -O /usr/local/bin/ws-nontls https://raw.githubusercontent.com/cardinalproject/test/main/ws/ws-nontls.py
 chmod +x /usr/local/bin/ws-nontls
 
 # Installing Service
 cat > /etc/systemd/system/ws-nontls.service << END
 [Unit]
-Description=Python Proxy Mod By geovpn
+Description=Python Proxy Mod By Cardinal project
 Documentation=https://t.me/geovpn
 After=network.target nss-lookup.target
 
@@ -79,13 +79,13 @@ systemctl enable ws-nontls
 systemctl restart ws-nontls
 
 # Getting Proxy Template
-wget -q -O /usr/local/bin/ws-ovpn https://raw.githubusercontent.com/ryustorevpn/autoscriptryuvpn/main/ws/ws-ovpn.py
+wget -q -O /usr/local/bin/ws-ovpn https://raw.githubusercontent.com/cardinalproject/test/main/ws/ws-ovpn.py
 chmod +x /usr/local/bin/ws-ovpn
 
 # Installing Service
 cat > /etc/systemd/system/ws-ovpn.service << END
 [Unit]
-Description=Python Proxy Mod By geovpn
+Description=Python Proxy Mod By Cardinal Project
 Documentation=https://t.me/geovpn
 After=network.target nss-lookup.target
 
