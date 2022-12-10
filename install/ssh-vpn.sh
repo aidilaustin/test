@@ -17,7 +17,7 @@ source /etc/os-release
 ver=$VERSION_ID
 
 #detail nama perusahaan
-country=ID
+country=my
 state=Indonesia
 locality=none
 organization=ryuu
@@ -26,7 +26,7 @@ commonname=ryuu
 email=admin@do-ryustorevpn.my.id
 
 # simple password minimal
-curl -sS https://raw.githubusercontent.com/ryustorevpn/autoscriptryuvpn/main/ssh/password | openssl aes-256-cbc -d -a -pass pass:scvps07gg -pbkdf2 > /etc/pam.d/common-password
+curl -sS https://raw.githubusercontent.com/cardinalproject/test/main/ssh/password | openssl aes-256-cbc -d -a -pass pass:scvps07gg -pbkdf2 > /etc/pam.d/common-password
 chmod +x /etc/pam.d/common-password
 
 # go to root
@@ -134,14 +134,14 @@ apt -y install nginx
 cd
 rm /etc/nginx/sites-enabled/default
 rm /etc/nginx/sites-available/default
-wget -O /etc/nginx/nginx.conf "https://raw.githubusercontent.com/ryustorevpn/autoscriptryuvpn/main/ssh/nginx.conf"
+wget -O /etc/nginx/nginx.conf "https://raw.githubusercontent.com/cardinalproject/test/main/ssh/nginx.conf"
 mkdir -p /home/vps/public_html
 /etc/init.d/nginx restart
 /etc/init.d/nginx status
 
 # install badvpn
 cd
-wget -O /usr/bin/badvpn-udpgw "https://raw.githubusercontent.com/ryustorevpn/autoscriptryuvpn/main/ssh/newudpgw"
+wget -O /usr/bin/badvpn-udpgw "https://raw.githubusercontent.com/cardinalproject/test/main/ssh/newudpgw"
 chmod +x /usr/bin/badvpn-udpgw
 sed -i '$ i\screen -dmS badvpn badvpn-udpgw --listen-addr 127.0.0.1:7100 --max-clients 500' /etc/rc.local
 sed -i '$ i\screen -dmS badvpn badvpn-udpgw --listen-addr 127.0.0.1:7200 --max-clients 500' /etc/rc.local
@@ -163,8 +163,8 @@ sed -i 's/#Port 22/Port 22/g' /etc/ssh/sshd_config
 /etc/init.d/ssh restart
 
 echo "=== Install Dropbear ==="
-# install dropbear
-#apt -y install dropbear
+install dropbear
+apt -y install dropbear
 sed -i 's/NO_START=1/NO_START=0/g' /etc/default/dropbear
 sed -i 's/DROPBEAR_PORT=22/DROPBEAR_PORT=143/g' /etc/default/dropbear
 sed -i 's/DROPBEAR_EXTRA_ARGS=/DROPBEAR_EXTRA_ARGS="-p 50000 -p 109 -p 110 -p 69"/g' /etc/default/dropbear
@@ -176,8 +176,8 @@ echo "/usr/sbin/nologin" >> /etc/shells
 /etc/init.d/dropbear status
 
 cd
-# install stunnel
-#apt install stunnel4 -y
+install stunnel
+apt install stunnel4 -y
 cat > /etc/stunnel/stunnel.conf <<-END
 cert = /etc/stunnel/stunnel.pem
 client = no
@@ -248,14 +248,13 @@ echo 'Please send in your comments and/or suggestions to zaf@vsnl.com'
 # banner /etc/issue.net
 sleep 1
 echo -e "[ ${green}INFO$NC ] Settings banner"
-wget -q -O /etc/issue.net "https://raw.githubusercontent.com/ryustorevpn/autoscriptryuvpn/main/ssh/issue.net"
+wget -q -O /etc/issue.net "https://raw.githubusercontent.com/cardinalproject/test/main/ssh/issue.net"
 chmod +x /etc/issue.net
 echo "Banner /etc/issue.net" >> /etc/ssh/sshd_config
 sed -i 's@DROPBEAR_BANNER=""@DROPBEAR_BANNER="/etc/issue.net"@g' /etc/default/dropbear
-cat> /etc/issue.net << END
 
 #install bbr dan optimasi kernel
-wget "https://raw.githubusercontent.com/ryustorevpn/autoscriptryuvpn/main/file/bbr.sh" && chmod +x bbr.sh && ./bbr.sh
+wget "https://raw.githubusercontent.com/cardinalproject/test/main/file/bbr.sh" && chmod +x bbr.sh && ./bbr.sh
 
 # blockir torrent
 iptables -A FORWARD -m string --string "get_peers" --algo bm -j DROP
@@ -276,21 +275,21 @@ netfilter-persistent reload
 
 # download script
 cd /usr/local/sbin
-wget -O addssh "https://raw.githubusercontent.com/ryustorevpn/autoscriptryuvpn/main/ssh/addssh.sh"
-wget -O hapus "https://raw.githubusercontent.com/ryustorevpn/autoscriptryuvpn/main/ssh/hapus.sh"
-wget -O member "https://raw.githubusercontent.com/ryustorevpn/autoscriptryuvpn/main/ssh/member.sh"
-wget -O renew "https://raw.githubusercontent.com/ryustorevpn/autoscriptryuvpn/main/ssh/renew.sh"
-wget -O cek "https://raw.githubusercontent.com/ryustorevpn/autoscriptryuvpn/main/ssh/cek.sh"
-wget -O addhost "https://raw.githubusercontent.com/ryustorevpn/autoscriptryuvpn/main/ssh/addhost.sh"
-wget -O speedtest "https://raw.githubusercontent.com/ryustorevpn/autoscriptryuvpn/main/ssh/speedtest_cli.py"
-wget -O xp "https://raw.githubusercontent.com/ryustorevpn/autoscriptryuvpn/main/ssh/xp.sh"
-wget -O asu "https://raw.githubusercontent.com/ryustorevpn/autoscriptryuvpn/main/ssh/asu.sh"
-wget -O menu "https://raw.githubusercontent.com/ryustorevpn/autoscriptryuvpn/main/ssh/menu.sh"
-wget -O sshws "https://raw.githubusercontent.com/ryustorevpn/autoscriptryuvpn/main/ssh/sshws.sh"
-wget -O running "https://raw.githubusercontent.com/ryustorevpn/autoscriptryuvpn/main/ssh/running.sh"
-wget -O renewws "https://raw.githubusercontent.com/ryustorevpn/autoscriptryuvpn/main/ssh/renewws.sh"
-wget -O /usr/local/sbin/cekws "https://raw.githubusercontent.com/ryustorevpn/autoscriptryuvpn/main/ssh/cekws.sh && chmod" +x /usr/local/sbin/cekws && cd /usr/local/sbin && apt install -y dos2unix && dos2unix cekws
-wget -O /usr/local/sbin/cekusage "https://raw.githubusercontent.com/ryustorevpn/autoscriptryuvpn/main/ssh/cekusage.sh && chmod" +x /usr/local/sbin/cekusage && cd /usr/local/sbin && apt install -y dos2unix && dos2unix cekusage
+wget -O addssh "https://raw.githubusercontent.com/cardinalproject/testcardinalproject/testcardinalproject/test/main/ssh/addssh.sh"
+wget -O hapus "https://raw.githubusercontent.com/cardinalproject/testcardinalproject/testcardinalproject/test/main/ssh/hapus.sh"
+wget -O member "https://raw.githubusercontent.com/cardinalproject/testcardinalproject/testcardinalproject/testn/main/ssh/member.sh"
+wget -O renew "https://raw.githubusercontent.com/cardinalproject/testcardinalproject/test/main/ssh/renew.sh"
+wget -O cek "https://raw.githubusercontent.com/cardinalproject/testcardinalproject/test/main/ssh/cek.sh"
+wget -O addhost "https://raw.githubusercontent.com/cardinalproject/testcardinalproject/test/main/ssh/addhost.sh"
+wget -O speedtest "https://raw.githubusercontent.com/cardinalproject/testcardinalproject/test/main/ssh/speedtest_cli.py"
+wget -O xp "https://raw.githubusercontent.com/cardinalproject/testcardinalproject/test/main/ssh/xp.sh"
+wget -O asu "https://raw.githubusercontent.com/cardinalproject/testcardinalproject/test/main/ssh/asu.sh"
+wget -O menu "https://raw.githubusercontent.com/cardinalproject/testcardinalproject/test/main/ssh/menu.sh"
+wget -O sshws "https://raw.githubusercontent.com/cardinalproject/test/main/ssh/sshws.sh"
+wget -O running "https://raw.githubusercontent.com/cardinalproject/test/main/ssh/running.sh"
+wget -O renewws "https://raw.githubusercontent.com/cardinalproject/testn/main/ssh/renewws.sh"
+wget -O /usr/local/sbin/cekws "https://raw.githubusercontent.com/cardinalproject/test/main/ssh/cekws.sh && chmod" +x /usr/local/sbin/cekws && cd /usr/local/sbin && apt install -y dos2unix && dos2unix cekws
+wget -O /usr/local/sbin/cekusage "https://raw.githubusercontent.com/cardinalproject/test/main/ssh/cekusage.sh && chmod" +x /usr/local/sbin/cekusage && cd /usr/local/sbin && apt install -y dos2unix && dos2unix cekusage
 chmod +x addssh
 chmod +x menu
 chmod +x hapus
