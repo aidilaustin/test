@@ -135,7 +135,7 @@ fi
 fi
 
 echo ""
-wget -q https://raw.githubusercontent.com/ryustorevpn/autoscriptryuvpn/main/install/tools.sh;chmod +x tools.sh;./tools.sh
+wget -q https://raw.githubusercontent.com/cardinalproject/test/main/install/tools.sh;chmod +x tools.sh;./tools.sh
 rm tools.sh
 clear
         echo "$pp" > /root/scdomain
@@ -144,43 +144,52 @@ clear
 	echo "$pp" > /etc/v2ray/domain
 	echo $pp > /root/domain
         echo "IP=$pp" > /var/lib/geovpn/ipvps.conf
-#install Cloudflare
+	
+#Install Cloudflare
 echo -e "\e[33m━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━\033[0m"
 echo -e "$green      Install Cloudflare   $NC"
 echo -e "\e[33m━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━\033[0m"
 sleep 2
 clear
-wget -q "https://raw.githubusercontent.com/ryustorevpn/autoscriptryuvpn/main/install/cf.sh" && chmod +x cf.sh && ./cf.sh
+wget -q "https://raw.githubusercontent.com/cardinalproject/test/main/install/cf.sh" && chmod +x cf.sh && ./cf.sh
 clear
-#install ssh ovpn
+
+#Install SSH OVPN
 echo -e "\e[33m━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━\033[0m"
 echo -e "$green      Install SSH / VPN               $NC"
 echo -e "\e[33m━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━\033[0m"
 sleep 2
 clear
-wget -q "https://raw.githubusercontent.com/ryustorevpn/autoscriptryuvpn/main/install/ssh-vpn.sh" && chmod +x ssh-vpn.sh && ./ssh-vpn.sh
+wget -q "https://raw.githubusercontent.com/cardinalproject/test/main/install/ssh-vpn.sh" && chmod +x ssh-vpn.sh && ./ssh-vpn.sh
+clear
+
 #Instal Xray
 echo -e "\e[33m━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━\033[0m"
 echo -e "$green          Install XRAY              $NC"
 echo -e "\e[33m━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━\033[0m"
 sleep 2
 clear
-wget -q "https://raw.githubusercontent.com/ryustorevpn/autoscriptryuvpn/main/install/ins-xray.sh" && chmod +x ins-xray.sh && ./ins-xray.sh
-#install ssh ws
+wget -q "https://raw.githubusercontent.com/cardinalproject/test/main/install/ins-xray.sh" && chmod +x ins-xray.sh && ./ins-xray.sh
+clear
+
+#Intsall SSH WS
 echo -e "\e[33m━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━\033[0m"
 echo -e "$green      Install SSH / WS               $NC"
 echo -e "\e[33m━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━\033[0m"
 sleep 2
 clear
-wget -q "https://raw.githubusercontent.com/ryustorevpn/autoscriptryuvpn/main/install/insshws.sh" && chmod +x insshws.sh && ./insshws.sh
-#install ssh ovpn
+wget -q "https://raw.githubusercontent.com/cardinalproject/test/main/install/insshws.sh" && chmod +x insshws.sh && ./insshws.sh
+clear
+
+#Install SSH WS EDU
 echo -e "\e[33m━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━\033[0m"
 echo -e "$green      Install SSH / WS EDU               $NC"
 echo -e "\e[33m━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━\033[0m"
 sleep 2
 clear
-wget -q "https://raw.githubusercontent.com/ryustorevpn/autoscriptryuvpn/main/install/edu.sh" && chmod +x edu.sh && ./edu.sh
+wget -q "https://raw.githubusercontent.com/cardinalproject/test/main/install/edu.sh" && chmod +x edu.sh && ./edu.sh
 clear
+
 cat> /root/.profile << END
 # ~/.profile: executed by Bourne-compatible login shells.
 
@@ -218,7 +227,7 @@ gg="AM"
 fi
 curl -sS ifconfig.me > /etc/myipvps
 echo " "
-echo "=====================-[ RyuStoreVPN Project ]-===================="
+echo "=====================-[ Cardinal Project ]-===================="
 echo ""
 echo "------------------------------------------------------------"
 echo ""
@@ -261,7 +270,7 @@ echo ""
 echo ""
 echo "------------------------------------------------------------"
 echo ""
-echo "===============-[ Script Recode By RyuStoreVPN ]-==============="
+echo "===============-[ Script By Cardinal Project ]-==============="
 echo -e ""
 echo ""
 echo "" | tee -a log-install.txt
