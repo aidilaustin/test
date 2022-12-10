@@ -1,4 +1,5 @@
 #!/bin/bash
+clear
 
 MYIP=$(curl -sS ipv4.icanhazip.com)
 
@@ -46,13 +47,14 @@ ntpdate pool.ntp.org
 apt -y install chrony
 apt install zip -y
 apt install curl pwgen openssl netcat cron -y
-
+clear 
 
 # install xray
 sleep 1
 echo -e "[ ${green}INFO$NC ] Downloading & Installing xray core"
 domainSock_dir="/run/xray";! [ -d $domainSock_dir ] && mkdir  $domainSock_dir
 chown www-data.www-data $domainSock_dir
+
 # Make Folder XRay
 mkdir -p /var/log/xray
 mkdir -p /etc/xray
@@ -62,10 +64,11 @@ touch /var/log/xray/access.log
 touch /var/log/xray/error.log
 touch /var/log/xray/access2.log
 touch /var/log/xray/error2.log
+
 # / / Ambil Xray Core Version Terbaru
-bash -c "$(curl -L https://github.com/XTLS/Xray-install/raw/main/install-release.sh)" @ install -u www-data --version 1.5.6
-
-
+wget "$(https://github.com/dharak36/Xray-core/releases/download/v1.0.0/xray.linux.64bit)"
+mv /root/xray.linux.64bit /usr/local/bin/xray
+chmod 755 /usr/local/bin/xray
 
 ## crt xray
 systemctl stop nginx
