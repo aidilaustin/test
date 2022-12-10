@@ -1,8 +1,8 @@
 #!/bin/bash
 # Menu For Script
 # Edition : Stable Edition V1.0
-# Author  : MAULANA ADITYA
-# (C) Copyright 2022-2023 By RYUSTOREVPN
+# Author  : Cardinal Project
+# (C) Copyright 2022-2023 By Cardinal Project
 # =========================================
 
 # // Exporting Language to UTF-8
