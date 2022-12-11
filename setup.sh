@@ -135,7 +135,7 @@ fi
 fi
 
 echo ""
-wget -q https://raw.githubusercontent.com/cardinalproject/test/main/install/tools.sh;chmod +x tools.sh;./tools.sh
+wget -q "https://raw.githubusercontent.com/cardinalproject/test/main/install/tools.sh" && chmod +x tools.sh&& ./tools.sh
 rm tools.sh
 clear
         echo "$pp" > /root/scdomain
