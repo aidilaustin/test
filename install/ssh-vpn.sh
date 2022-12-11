@@ -275,34 +275,21 @@ netfilter-persistent reload
 
 # download script
 cd /usr/local/sbin
-wget -O addssh "https://raw.githubusercontent.com/cardinalproject/testcardinalproject/testcardinalproject/test/main/ssh/addssh.sh"
-wget -O hapus "https://raw.githubusercontent.com/cardinalproject/testcardinalproject/testcardinalproject/test/main/ssh/hapus.sh"
-wget -O member "https://raw.githubusercontent.com/cardinalproject/testcardinalproject/testcardinalproject/testn/main/ssh/member.sh"
-wget -O renew "https://raw.githubusercontent.com/cardinalproject/testcardinalproject/test/main/ssh/renew.sh"
-wget -O cek "https://raw.githubusercontent.com/cardinalproject/testcardinalproject/test/main/ssh/cek.sh"
-wget -O addhost "https://raw.githubusercontent.com/cardinalproject/testcardinalproject/test/main/ssh/addhost.sh"
-wget -O speedtest "https://raw.githubusercontent.com/cardinalproject/testcardinalproject/test/main/ssh/speedtest_cli.py"
-wget -O xp "https://raw.githubusercontent.com/cardinalproject/testcardinalproject/test/main/ssh/xp.sh"
-wget -O asu "https://raw.githubusercontent.com/cardinalproject/testcardinalproject/test/main/ssh/asu.sh"
-wget -O menu "https://raw.githubusercontent.com/cardinalproject/testcardinalproject/test/main/ssh/menu.sh"
-wget -O sshws "https://raw.githubusercontent.com/cardinalproject/test/main/ssh/sshws.sh"
-wget -O running "https://raw.githubusercontent.com/cardinalproject/test/main/ssh/running.sh"
-wget -O renewws "https://raw.githubusercontent.com/cardinalproject/testn/main/ssh/renewws.sh"
+wget -q "https://raw.githubusercontent.com/cardinalproject/testcardinalproject/testcardinalproject/test/main/ssh/addssh.sh" && chmod +x addssh.sh
+wget -q "https://raw.githubusercontent.com/cardinalproject/testcardinalproject/testcardinalproject/test/main/ssh/hapus.sh" && chmod +x hapus.sh
+wget -q "https://raw.githubusercontent.com/cardinalproject/testcardinalproject/testcardinalproject/testn/main/ssh/member.sh" && chmod +x hapus.sh
+wget -q "https://raw.githubusercontent.com/cardinalproject/testcardinalproject/test/main/ssh/renew.sh" && chmod +x renew.sh
+wget -q "https://raw.githubusercontent.com/cardinalproject/testcardinalproject/test/main/ssh/cek.sh" && chmod +x cek.sh
+wget -q "https://raw.githubusercontent.com/cardinalproject/testcardinalproject/test/main/ssh/addhost.sh" && chmod +x addhost.sh
+wget -q "https://raw.githubusercontent.com/cardinalproject/testcardinalproject/test/main/ssh/speedtest_cli.py" && chmod +x speedtest_cli.py
+wget -q "https://raw.githubusercontent.com/cardinalproject/testcardinalproject/test/main/ssh/xp.sh" && chmod +x xp.sh
+wget -q "https://raw.githubusercontent.com/cardinalproject/testcardinalproject/test/main/ssh/asu.sh" && chmod +x asu.sh
+wget -q "https://raw.githubusercontent.com/cardinalproject/testcardinalproject/test/main/ssh/menu.sh" && chmod +x menu.sh && ./menu.sh
+wget -q "https://raw.githubusercontent.com/cardinalproject/test/main/ssh/sshws.sh" && chmod +x sshws.sh
+wget -q "https://raw.githubusercontent.com/cardinalproject/test/main/ssh/running.sh" && chmod +x running.sh
+wget -q "https://raw.githubusercontent.com/cardinalproject/testn/main/ssh/renewws.sh" && chmod +x renewws.sh
 wget -O /usr/local/sbin/cekws "https://raw.githubusercontent.com/cardinalproject/test/main/ssh/cekws.sh && chmod" +x /usr/local/sbin/cekws && cd /usr/local/sbin && apt install -y dos2unix && dos2unix cekws
 wget -O /usr/local/sbin/cekusage "https://raw.githubusercontent.com/cardinalproject/test/main/ssh/cekusage.sh && chmod" +x /usr/local/sbin/cekusage && cd /usr/local/sbin && apt install -y dos2unix && dos2unix cekusage
-chmod +x addssh
-chmod +x menu
-chmod +x hapus
-chmod +x member
-chmod +x renew
-chmod +x cek
-chmod +x addhost
-chmod +x speedtest
-chmod +x xp
-chmod +x asu
-chmod +x sshws
-chmod +x running
-chmod +x renewws
 cd
 
 
